@@ -1,4 +1,4 @@
-import { Client,Databases,Storage,ID, Query } from "appwrite";
+import { Client,Databases,Storage,ID, Query,Permission, Role } from "appwrite";
 import conf from "../config/Conf";
  
 
@@ -32,6 +32,8 @@ export class Services {
             return Post;
             
         } catch (error) {
+            console.log("error in adding post",error);
+            throw error;
             
         }
 
@@ -90,9 +92,9 @@ export class Services {
 
     //5) To get all Posts
 
-    async getAllPosts(queries=[Query.equal("status","active")]){
+    async getAllPosts(){
         try {
-            return await this.Databases.listDocuments(conf.appwriteDatabaseId,conf.appwriteCollectionId,queries)
+            return await this.Databases.listDocuments(conf.appwriteDatabaseId,conf.appwriteCollectionId); //queries=[Query.equal("status","active")]
             
         } catch (error) {
             console.log("Appwrite error in getALLPOSTS",error)
@@ -122,7 +124,15 @@ export class Services {
 
     async uploadFile(file){
         try {
-            return await this.bucket.createFile(conf.appwriteBucketId,ID.unique(),file)
+       
+
+        return await this.bucket.createFile(
+            conf.appwriteBucketId,
+            ID.unique(),
+            file,
+        )
+            
+
             
         } catch (error) {
             console.log("appwrite error UPLOAD FILE ",error);
@@ -147,13 +157,46 @@ export class Services {
     }
 
     // 8) To get file preview
-     async getFilePreview(fileId){
+    //  async getFilePreview(fileId){
 
       
-            return this.bucket.getFilePreview(conf.appwriteBucketId,fileId);
+    //         const URL= this.bucket.getFilePreview(conf.appwriteBucketId,fileId);
+    //         console.log(URL,"URL");
+    //         return URL;
             
         
        
+    //  }
+
+
+     //9) To get file view
+
+   getFileView(fileId){
+        const URL=this.bucket.getFileView(conf.appwriteBucketId,fileId);
+        console.log("IMAGE URL",URL);
+        return URL;
+     }
+
+
+     //method to add profile picture
+
+     async uploadProfilePic(file,Id){
+        try {
+       
+
+            return await this.bucket.createFile(
+                conf.appwriteBucketId,
+                Id,
+                file,
+            )
+                
+    
+                
+            } catch (error) {
+                console.log("appwrite error in upload profile pic ",error);
+                return false;
+                
+            }
      }
 
 

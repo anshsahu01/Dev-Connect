@@ -18,7 +18,7 @@ function AddPost() {
 
 
     const handleaddPost= async (data)=>{
-        console.log(data);
+        // console.log(data);
         console.log("data",data.caption);
 
 
@@ -28,11 +28,17 @@ function AddPost() {
 
                 //upload file/image section
                 const file=data.Image[0];
-                const imageUrl = `https://cloud.appwrite.io/v1/storage/buckets/${conf.appwriteBucketId}/files/${file}/preview?project=${conf.appwriteProjectId}`;
-                const uploadFile=service.uploadFile(imageUrl);
+                if(!file){
+                  console.log("No file found");
+                  return;
+                }
+               
+                const uploadFile= await service.uploadFile(file);
+               
 
                 if(!uploadFile){
                     console.log('File upload failed');
+                    return;
                 }
 
                 //Add Post
@@ -45,11 +51,12 @@ function AddPost() {
             });
         if(Post){
            console.log("Post added",Post);
+           navigate("/profile");
            reset();//clear the form
 
 
         }else{
-
+            console.log("failed to add the post");
         }
 
     }else{
