@@ -13,7 +13,7 @@ function Seepost() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const currentUser = await authService.getCurrentUser(); // ✅ FIXED
+        const currentUser = await authService.getCurrentUser(); // 
         // console.log(currentUser);
   
         if (currentUser && isLoggedIn) {
@@ -35,24 +35,29 @@ function Seepost() {
 
   
   return (
-    <div>
-      {Array.isArray(posts) &&
-      posts.map((post) => (
-        
-        <div key={post.$id} className="p-4 mb-4 border rounded">
-          
-          <p>{post.caption}</p>
-          <img
-            src={service.getFileView(post.Image)}
-            alt="Post Preview"
-            className="mt-2 rounded max-w-full h-auto"
-          />
-          
-          
-        </div>
-      ))}
+    
       
+    
+
+    <div className="max-w-2xl mx-auto mt-6 px-4">
+  {Array.isArray(posts) && posts.map((post) => (
+    <div
+      key={post.$id}
+      className="bg-white rounded-lg shadow-md p-5 mb-6 border border-gray-200"
+    >
+      <div className="mb-3 text-gray-800 text-base font-medium">
+        {post.caption}
+      </div>
+
+      <img
+        src={service.getFileView(post.Image)}
+        alt="Post Preview"
+        className="w-full h-auto rounded-md object-cover"
+      />
     </div>
+  ))}
+</div>
+
   )
 }
 

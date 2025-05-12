@@ -137,78 +137,164 @@ fetchProfileDetails();
     );
   }
 
-  return (
-    <div className="container mx-auto mt-10 px-4">
-      <div className="bg-white p-6 rounded-lg shadow-md border">
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-gray-800">👤 Profile Info</h2>
+//   return (
+//     <div className="container mx-auto mt-10 px-4">
+//       <div className="bg-white p-6 rounded-lg shadow-md border">
+//         <div className="space-y-4">
+//           <h2 className="text-xl font-semibold text-gray-800">👤 Profile Info</h2>
 
-          <div className="text-gray-700">
-            {profileUrl && (
-              <img
-                src={profileUrl}
-                alt="Profile"
-                className="w-24 h-24 rounded-full object-cover mx-auto mt-4 shadow-md"
-              />
-            )}
+//           <div className="text-gray-700">
+//             {profileUrl && (
+//               <img
+//                 src={profileUrl}
+//                 alt="Profile"
+//                 className="w-24 h-24 rounded-full object-cover mx-auto mt-4 shadow-md"
+//               />
+//             )}
 
-            <p><strong>Name:</strong> {user.name}</p>
-            <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>User ID:</strong> {user.$id}</p>
-          </div>
+//             <p><strong>Name:</strong> {user.name}</p>
+//             <p><strong>Email:</strong> {user.email}</p>
+//             <p><strong>User ID:</strong> {user.$id}</p>
+//           </div>
 
-          {/* profile details section */}
+//           {/* profile details section */}
 
-<div className="mt-6 bg-gray-50 p-4 rounded-lg shadow-sm border">
-  {details && (
-    <>
-      <h3 className="text-lg font-semibold text-gray-800 mb-2">About Me</h3>
-      <p className="text-gray-700">
-        <span className="font-medium">Name:</span> {userprofileData?.name}
-      </p>
-      <p className="text-gray-700 mt-1">
-        <span className="font-medium">Bio:</span> {userprofileData?.bio}
-      </p>
-    </>
-  )}
-</div>
+// <div className="mt-6 bg-gray-50 p-4 rounded-lg shadow-sm border">
+//   {details && (
+//     <>
+//       <h3 className="text-lg font-semibold text-gray-800 mb-2">About Me</h3>
+//       <p className="text-gray-700">
+//         <span className="font-medium">Name:</span> {userprofileData?.name}
+//       </p>
+//       <p className="text-gray-700 mt-1">
+//         <span className="font-medium">Bio:</span> {userprofileData?.bio}
+//       </p>
+//     </>
+//   )}
+// </div>
 
            
             
           
 
-          <Button onClick={handleLogout}>Logout</Button>
-          <button onClick={() => navigate("/addpost")}>Post</button>
+//           <Button onClick={handleLogout}>Logout</Button>
+//           <button onClick={() => navigate("/addpost")}>Post</button>
 
-          {/* Upload profile picture */}
-          <form onSubmit={handleSubmit(addProfilePic)} className="flex flex-col space-y-4" encType="multipart/form-data">
-            <label className="bg-blue-600 text-white py-2 px-4 rounded cursor-pointer hover:bg-blue-700 text-center">
-              Upload Profile Pic
-              <Input
-                type="file"
-                accept="image/*"
-                {...register('Image', { required: true })}
-                className="hidden"
-              />
-            </label>
+//           {/* Upload profile picture */}
+//           <form onSubmit={handleSubmit(addProfilePic)} className="flex flex-col space-y-4" encType="multipart/form-data">
+//             <label className="bg-blue-600 text-white py-2 px-4 rounded cursor-pointer hover:bg-blue-700 text-center">
+//               Upload Profile Pic
+//               <Input
+//                 type="file"
+//                 accept="image/*"
+//                 {...register('Image', { required: true })}
+//                 className="hidden"
+//               />
+//             </label>
 
-            <button
-              type="submit"
-              className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-            >
-              Upload Profile Pic
-            </button>
-          </form>
+//             <button
+//               type="submit"
+//               className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+//             >
+//               Upload Profile Pic
+//             </button>
+//           </form>
 
-          {/* Edit button to conditionally show the edit form */}
-          <button onClick={()=>dispatch(showEditForm())}>Edit Profile</button>
-          {currentState && (
-            <CreateProfile/>
+//           {/* Edit button to conditionally show the edit form */}
+//           <button onClick={()=>dispatch(showEditForm())}>Edit Profile</button>
+//           {currentState && (
+//             <CreateProfile/>
+//           )}
+//        </div>
+//       </div>
+//     </div>
+//   );
+
+
+
+return (
+  <div className="container mx-auto mt-10 px-4">
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white border-b pb-2">👤 Profile Info</h2>
+
+        <div className="flex flex-col items-center md:flex-row md:items-start md:gap-6">
+          {profileUrl && (
+            <img
+              src={profileUrl}
+              alt="Profile"
+              className="w-28 h-28 rounded-full object-cover shadow-md border-2 border-blue-500"
+            />
           )}
-       </div>
+
+          <div className="text-gray-800 dark:text-gray-200 text-center md:text-left mt-4 md:mt-0">
+            <p className="text-lg font-semibold">{user.name}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{user.email}</p>
+            <p className="text-xs text-gray-500 mt-1">ID: {user.$id}</p>
+          </div>
+        </div>
+
+        {/* profile details section */}
+        {userprofileData && (
+          <div className="mt-6 bg-gray-50 dark:bg-gray-700 p-5 rounded-lg shadow-inner border border-gray-300 dark:border-gray-600">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">About Me</h3>
+            <p className="text-gray-800 dark:text-gray-300">
+              <span className="font-semibold">Name:</span> {userprofileData?.name}
+            </p>
+            <p className="text-gray-800 dark:text-gray-300 mt-1">
+              <span className="font-semibold">Bio:</span> {userprofileData?.bio}
+            </p>
+          </div>
+        )}
+
+        {/* buttons */}
+        <div className="flex flex-wrap gap-4 mt-6">
+          <Button onClick={handleLogout} className="bg-red-600 text-white hover:bg-red-700">Logout</Button>
+          <button
+            onClick={() => navigate("/addpost")}
+            className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+          >
+            Post
+          </button>
+          <button
+            onClick={() => dispatch(showEditForm())}
+            className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition"
+          >
+            Edit Profile
+          </button>
+        </div>
+
+        {/* Upload profile picture */}
+        <form
+          onSubmit={handleSubmit(addProfilePic)}
+          className="flex flex-col sm:flex-row items-center gap-4 mt-6"
+          encType="multipart/form-data"
+        >
+          <label className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-600 transition text-center">
+            Choose Profile Pic
+            <Input
+              type="file"
+              accept="image/*"
+              {...register('Image', { required: true })}
+              className="hidden"
+            />
+          </label>
+
+          <button
+            type="submit"
+            className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+          >
+            Upload
+          </button>
+        </form>
+
+        {/* Conditional Edit Form */}
+        {currentState && <CreateProfile />}
       </div>
     </div>
-  );
+  </div>
+);
+
 }
 
 export default Userprofile;

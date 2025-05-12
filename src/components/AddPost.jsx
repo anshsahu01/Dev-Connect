@@ -76,38 +76,76 @@ function AddPost() {
 
     }
 
-    
-  return (
-<div className="max-w-xl mx-auto mt-10 p-4 border rounded shadow">
-      <form onSubmit={handleSubmit(handleaddPost)} className="flex flex-col space-y-4">
-        <label className="text-lg font-medium">
-          Caption:
+     return (
+    <div className="max-w-2xl mx-auto mt-12 p-8 bg-white rounded-xl shadow-md">
+      <h2 className="text-2xl font-semibold text-gray-800 text-center">Create a Post</h2>
+
+      <form onSubmit={handleSubmit(handleaddPost)} className="mt-6 space-y-6">
+        {/* Caption Field */}
+        <div>
+          <label className="block text-lg font-medium text-gray-700">Caption:</label>
           <textarea
             {...register('caption', { required: true })}
             placeholder="Write your post here"
-            className="w-full mt-1 p-2 border rounded"
+            className="w-full mt-2 p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-        </label>
+        </div>
 
-        <label className="text-lg font-medium">
-          Upload Image:
+        {/* Upload Image Field */}
+        <div>
+          <label className="block text-lg font-medium text-gray-700">Upload Image:</label>
           <input
             type="file"
             accept="image/*"
             {...register('Image', { required: true })}
-            className="w-full mt-1"
+            className="w-full mt-2 p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-        </label>
+        </div>
 
+        {/* Submit Button */}
         <button
           type="submit"
-          className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300"
         >
           Post
         </button>
       </form>
     </div>
-  )
+  );
+
+    
+//   return (
+// {/* <div className="max-w-xl mx-auto mt-10 p-4 border rounded shadow">
+//       <form onSubmit={handleSubmit(handleaddPost)} className="flex flex-col space-y-4">
+//         <label className="text-lg font-medium">
+//           Caption:
+//           <textarea
+//             {...register('caption', { required: true })}
+//             placeholder="Write your post here"
+//             className="w-full mt-1 p-2 border rounded"
+//           />
+//         </label>
+
+//         <label className="text-lg font-medium">
+//           Upload Image:
+//           <input
+//             type="file"
+//             accept="image/*"
+//             {...register('Image', { required: true })}
+//             className="w-full mt-1"
+//           />
+//         </label>
+
+//         <button
+//           type="submit"
+//           className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+//         >
+//           Post
+//         </button>
+//       </form>
+//     </div> */}
+    
+//   )
 }
 
 export default AddPost

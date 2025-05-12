@@ -11,6 +11,7 @@ import SignInPage from './pages/SignInPage.jsx'
 import HomePage from './pages/HomePage.jsx'
 import Profile from './pages/Profile'
 import Addpostpage from './pages/Addpostpage'
+import Logout from './components/Logout'
 
 
 
@@ -46,7 +47,12 @@ const router=createBrowserRouter(
         {
           path:"/addpost",
           element:<Addpostpage/>
-        }
+        },
+
+        {
+          path:"/logout",
+          element:<Logout/>
+        },
       ]
     }
   ]
