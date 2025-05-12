@@ -66,15 +66,7 @@ function Profile() {
   }
 
 
-  const addProfilePic=async (data)=>{
-    try {
-      
-      
-    } catch (error) {
-      
-    }
 
-  }
 
  
   

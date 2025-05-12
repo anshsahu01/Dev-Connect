@@ -40,6 +40,7 @@ function Seepost() {
       posts.map((post) => (
         
         <div key={post.$id} className="p-4 mb-4 border rounded">
+          
           <p>{post.caption}</p>
           <img
             src={service.getFileView(post.Image)}

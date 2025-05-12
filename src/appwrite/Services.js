@@ -201,6 +201,78 @@ export class Services {
 
 
 
+     // USER PROFILE SERVICES
+
+     //1) To create user profile
+     
+      async createProfile({name,UserId,bio,skills,education}){
+
+        try {
+            const Profile= await this.Databases.createDocument(conf.appwriteDatabaseId,conf.appwriteProfileCollectionId,ID.unique(),
+        {
+            UserId,name,bio,skills,education
+            
+        }
+    )
+            return Profile;
+            
+        } catch (error) {
+            console.log("error in creating userProfile",error);
+            throw error;
+            
+        }
+
+    }
+
+    // to get profile details
+
+    async getProfileDetails(UserId){
+        
+        try {
+            const response=await this.Databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteProfileCollectionId,
+                [Query.equal('UserId',UserId)]
+            );
+
+            return response.documents[0];
+
+
+                
+           
+            
+        } catch (error) {
+            console.log("Appwrite error in getting Profile Details",error) ;
+            return null;  
+        }
+
+    }
+
+
+    //method to update profile details
+
+     async updateProfile({documentId,bio,skills,education}){
+      try {
+        return await this.Databases.updateDocument(conf.appwriteDatabaseId,conf.appwriteProfileCollectionId,documentId,
+            {
+                
+                skills,
+                bio,
+                education
+
+            }
+        )
+        
+      } catch (error) {
+        console.log("Appwrite error in updating profile", error);
+        throw error;
+        
+      }
+        
+    }
+    
+
+
 
 
 }
