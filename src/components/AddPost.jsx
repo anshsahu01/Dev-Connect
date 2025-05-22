@@ -7,6 +7,7 @@ import Input from './Input'
 import authService from '../appwrite/Auth'
 import { useForm } from 'react-hook-form'
 import conf from "../config/Conf";
+import { Button } from "../components/ui/button"
 
 
 
@@ -103,12 +104,12 @@ function AddPost() {
         </div>
 
         {/* Submit Button */}
-        <button
+        <Button
           type="submit"
           className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300"
         >
           Post
-        </button>
+        </Button>
       </form>
     </div>
   );

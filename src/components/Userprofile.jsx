@@ -137,78 +137,7 @@ fetchProfileDetails();
     );
   }
 
-//   return (
-//     <div className="container mx-auto mt-10 px-4">
-//       <div className="bg-white p-6 rounded-lg shadow-md border">
-//         <div className="space-y-4">
-//           <h2 className="text-xl font-semibold text-gray-800">👤 Profile Info</h2>
 
-//           <div className="text-gray-700">
-//             {profileUrl && (
-//               <img
-//                 src={profileUrl}
-//                 alt="Profile"
-//                 className="w-24 h-24 rounded-full object-cover mx-auto mt-4 shadow-md"
-//               />
-//             )}
-
-//             <p><strong>Name:</strong> {user.name}</p>
-//             <p><strong>Email:</strong> {user.email}</p>
-//             <p><strong>User ID:</strong> {user.$id}</p>
-//           </div>
-
-//           {/* profile details section */}
-
-// <div className="mt-6 bg-gray-50 p-4 rounded-lg shadow-sm border">
-//   {details && (
-//     <>
-//       <h3 className="text-lg font-semibold text-gray-800 mb-2">About Me</h3>
-//       <p className="text-gray-700">
-//         <span className="font-medium">Name:</span> {userprofileData?.name}
-//       </p>
-//       <p className="text-gray-700 mt-1">
-//         <span className="font-medium">Bio:</span> {userprofileData?.bio}
-//       </p>
-//     </>
-//   )}
-// </div>
-
-           
-            
-          
-
-//           <Button onClick={handleLogout}>Logout</Button>
-//           <button onClick={() => navigate("/addpost")}>Post</button>
-
-//           {/* Upload profile picture */}
-//           <form onSubmit={handleSubmit(addProfilePic)} className="flex flex-col space-y-4" encType="multipart/form-data">
-//             <label className="bg-blue-600 text-white py-2 px-4 rounded cursor-pointer hover:bg-blue-700 text-center">
-//               Upload Profile Pic
-//               <Input
-//                 type="file"
-//                 accept="image/*"
-//                 {...register('Image', { required: true })}
-//                 className="hidden"
-//               />
-//             </label>
-
-//             <button
-//               type="submit"
-//               className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-//             >
-//               Upload Profile Pic
-//             </button>
-//           </form>
-
-//           {/* Edit button to conditionally show the edit form */}
-//           <button onClick={()=>dispatch(showEditForm())}>Edit Profile</button>
-//           {currentState && (
-//             <CreateProfile/>
-//           )}
-//        </div>
-//       </div>
-//     </div>
-//   );
 
 
 
