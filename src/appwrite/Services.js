@@ -270,6 +270,62 @@ export class Services {
       }
         
     }
+
+
+    // METHODS FOR MESSAGE FEATURE
+  async createMessage({ UserId, Username, Body }) {
+    try {
+        await this.Databases.createDocument(
+            conf.appwriteDatabaseId,
+            conf.appwriteMessageCollectionId,
+            ID.unique(),
+            {
+                UserId,
+                Username,
+               Body,
+            },
+        );
+        console.log("MESSAGE CREATED SUCCESSFUL");
+    } catch (error) {
+        console.log("Error in creating message", error);
+        throw error;
+    }
+}
+
+   // method to delete message
+   async deleteMessage(id){
+
+    try {
+        const message=await this.Databases.deleteDocument(conf.appwriteDatabaseId,conf.appwriteMessageCollectionId,id);
+        return message;
+        
+    } catch (error) {
+        console.log("Error in deleting message",error);
+        throw error;
+        
+    }
+
+
+   }
+
+
+   // method to get all the messages - list karne ke liye
+   async getMessages(){
+    try {
+        const messages=await this.Databases.listDocuments(conf.appwriteDatabaseId,conf.appwriteMessageCollectionId,
+            [
+                Query.orderDesc('$createdAt'),
+                Query.limit(100)
+            ]
+        )
+
+        return messages.documents;
+        
+    } catch (error) {
+        console.log("Error in getting messages",error);
+        throw error;
+    }
+   }
     
 
 

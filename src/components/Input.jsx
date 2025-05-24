@@ -10,23 +10,7 @@ function Input({
     const Id=useId();
   return (
 
-  //   <div className="mb-4">
-  //   {label && (
-  //     <label
-  //       className="block mb-1 text-sm font-medium text-gray-700"
-  //       htmlFor={Id}
-  //     >
-  //       {label}
-  //     </label>
-  //   )}
-  //   <input
-  //     type={type}
-  //     ref={ref}
-  //     id={Id}
-  //     className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800 placeholder-gray-500"
-  //     {...props}
-  //   />
-  // </div>
+
 
   <div className="mb-4 w-full">
       {label && (

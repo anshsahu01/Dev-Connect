@@ -5,7 +5,8 @@ const conf={
     appwriteCollectionId:String(import.meta.env.VITE_APPWRITE_COLLECTION_ID),
     appwriteBucketId:String(import.meta.env.VITE_APPWRITE_BUCKET_ID),
     appwriteProjectId:String(import.meta.env.VITE_APPWRITE_PROJECT_ID),
-    appwriteProfileCollectionId:String(import.meta.env.VITE_APPWRITE_PROFILECOLLECTION_ID)
+    appwriteProfileCollectionId:String(import.meta.env.VITE_APPWRITE_PROFILECOLLECTION_ID),
+    appwriteMessageCollectionId:String(import.meta.env.VITE_APPWRITE_MESSAGECOLLECTION_ID),
 
 }
 
