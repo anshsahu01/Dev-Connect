@@ -12,7 +12,7 @@ import HomePage from './pages/HomePage.jsx'
 import Profile from './pages/Profile'
 import Addpostpage from './pages/Addpostpage'
 import Logout from './components/Logout'
-import MessagesPage from './pages/MessagesPage'
+import MessagePage from './pages/MessagePage'
 
 
 
@@ -56,7 +56,7 @@ const router=createBrowserRouter(
         },
         {
           path:"/messages",
-          element:<MessagesPage/>
+          element:<MessagePage/>
         }
       ]
     }

@@ -9,7 +9,7 @@ import authService from '../appwrite/Auth';
 
 
 
-function messages() {
+function Messages() {
     const [messages,setMessages]=useState([]);
     
     const {register,handleSubmit,reset}=useForm();
@@ -87,6 +87,6 @@ function messages() {
   )
 }
 
-export default messages
+export default Messages
 
 
