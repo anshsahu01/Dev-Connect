@@ -13,6 +13,7 @@ import Profile from './pages/Profile'
 import Addpostpage from './pages/Addpostpage'
 import Logout from './components/Logout'
 import MessagePage from './pages/MessagePage'
+import Alluserpage from './pages/Alluserpage'
 
 
 
@@ -31,7 +32,7 @@ const router=createBrowserRouter(
 
         },
         {
-          path:"/login",
+          path:"/",
           element:<LoginPage/>
         },
 
@@ -57,6 +58,10 @@ const router=createBrowserRouter(
         {
           path:"/messages",
           element:<MessagePage/>
+        },
+        {
+          path:"/users",
+          element:<Alluserpage/>
         }
       ]
     }

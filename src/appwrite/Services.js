@@ -273,7 +273,7 @@ export class Services {
 
 
     // METHODS FOR MESSAGE FEATURE
-  async createMessage({ UserId, Username, Body }) {
+  async createMessage({ UserId, Username, Body, ReceiverId }) {
     try {
         await this.Databases.createDocument(
             conf.appwriteDatabaseId,
@@ -281,6 +281,7 @@ export class Services {
             ID.unique(),
             {
                 UserId,
+                ReceiverId,
                 Username,
                Body,
             },
@@ -325,7 +326,103 @@ export class Services {
         console.log("Error in getting messages",error);
         throw error;
     }
+   };
+
+
+   // SERVICES TO GET STORE AND GET USERS DATA AFTER SIGNUP
+   
+   async createUserData({UserId,Username}){
+    try {
+
+   return await this.Databases.createDocument(
+        conf.appwriteDatabaseId,conf.appwriteUserdataCollectionId,UserId,
+        {
+            Username,
+          
+        }
+    )
+    
+   } catch (error) {
+    console.log("Appwrite error in creating UserDATA",error);
+    throw error;
+    
    }
+    
+
+   }
+
+
+   
+
+
+   async getAllusers(){
+     try {
+        const result=await this.Databases.listDocuments(
+            conf.appwriteDatabaseId,
+            conf.appwriteUserdataCollectionId)
+        return result;
+    
+   } catch (error) {
+    console.log("Appwrite error in listing user",error);
+    throw error;
+    
+   }
+
+
+
+
+   }
+
+
+   async updateUserData({documentId,Username}){
+      try {
+        const result= await this.Databases.updateDocument(conf.appwriteDatabaseId,conf.appwriteUserdataCollectionId,documentId,
+            {
+                
+               Username
+
+            }
+        );
+        if(result){
+            console.log("user data updated successfully");
+            return result;
+        }
+        
+      } catch (error) {
+        console.log("Appwrite error in updating profile", error);
+        throw error;
+        
+      }
+        
+    }
+
+
+    //get user
+
+  async getUserData(UserId){
+        
+        try {
+            const response=await this.Databases.getDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteUserdataCollectionId,
+                [Query.equal('UserId',UserId)]
+            );
+
+            return response;
+
+
+                
+           
+            
+        } catch (error) {
+            console.log("Appwrite error in getting User Details",error) ;
+            return null;  
+        }
+
+    }
+
+
+  
     
 
 

@@ -21,10 +21,13 @@ const navigate=useNavigate();
       //agar userData  yane ki agar account create ho gya hai to store ke andar Login method se state ko update kar do
       if(userData){
         const currentUser= await authService.getCurrentUser();
+
         if(currentUser){
+          
+
           console.log("account created");
           dispatch(authLogin(currentUser));
-           navigate("/login");
+           navigate("/");
         }
         
        
@@ -41,75 +44,7 @@ const navigate=useNavigate();
 
 
   return (
-//     <div>
 
-// <p className="mt-2 text-center text-base text-black/60">
-//                     Already have an account?&nbsp;
-//                     <Link
-//                         to="/login"
-//                         className="font-medium text-primary transition-all duration-200 hover:underline"
-//                     >
-//                         Sign In
-//                     </Link>
-//                 </p>
-//       {error && <p className=''>{error.message}</p>}
-
-//       <form onSubmit={handleSubmit(create)} >
-//         <Input 
-//         label="Full Name:"
-//         placeholder="Enter your name here"
-//         {
-//           ...register("name",{
-//             required:true,
-//           })
-//         }
-//         />
-     
-
-//       // ab email ke liye input field 
-
-     
-//         <Input 
-//         label="Enter email here:"
-//         placeholder="Enter your email here"
-//         type="email"
-//         {
-//           ...register("email",{
-//             required:true,
-         
-//           })
-//         }
-//         />
-    
-
-// // ab password ke liye input field
-      
-//         <Input 
-//         label="Password:"
-//         placeholder="Enter your password here"
-        
-//         {
-//           ...register("password",{
-//             required:true,
-         
-//           })
-//         }
-//         />
-
-// <Button type="submit" className="w-full">
-//                             Create Account
-//                         </Button>
-
-       
-
-        
-//       </form>
-
-      
-    
-
-      
-//     </div>
 
 <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="max-w-md w-full bg-white shadow-lg rounded-xl p-8 space-y-6">
