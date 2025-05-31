@@ -229,13 +229,13 @@ export class Services {
     async getProfileDetails(UserId){
         
         try {
-            const response=await this.Databases.listDocuments(
+            const response=await this.Databases.getDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteProfileCollectionId,
                 [Query.equal('UserId',UserId)]
             );
 
-            return response.documents[0];
+            return response;
 
 
                 
@@ -246,6 +246,29 @@ export class Services {
             return null;  
         }
 
+    }
+
+
+    //method to get all profiles
+
+    async getAllUsers(){
+        try {
+
+            const response = await this.Databases.listDocuments(
+                 conf.appwriteDatabaseId,
+                conf.appwriteProfileCollectionId,
+            )
+
+            if(response){
+                console.log("All users response geneated");
+                return response.documents;
+            }
+            
+        } catch (error) {
+            console.log("Appwrite error in getting all profiles", error);
+            throw error;
+            
+        }
     }
 
 
@@ -331,95 +354,95 @@ export class Services {
 
    // SERVICES TO GET STORE AND GET USERS DATA AFTER SIGNUP
    
-   async createUserData({UserId,Username}){
-    try {
+//    async createUserData({UserId,Username}){
+//     try {
 
-   return await this.Databases.createDocument(
-        conf.appwriteDatabaseId,conf.appwriteUserdataCollectionId,UserId,
-        {
-            Username,
+//    return await this.Databases.createDocument(
+//         conf.appwriteDatabaseId,conf.appwriteUserdataCollectionId,UserId,
+//         {
+//             Username,
           
-        }
-    )
+//         }
+//     )
     
-   } catch (error) {
-    console.log("Appwrite error in creating UserDATA",error);
-    throw error;
+//    } catch (error) {
+//     console.log("Appwrite error in creating UserDATA",error);
+//     throw error;
     
-   }
+//    }
     
 
-   }
+//    }
 
 
    
 
 
-   async getAllusers(){
-     try {
-        const result=await this.Databases.listDocuments(
-            conf.appwriteDatabaseId,
-            conf.appwriteUserdataCollectionId)
-        return result;
+//    async getAllusers(){
+//      try {
+//         const result=await this.Databases.listDocuments(
+//             conf.appwriteDatabaseId,
+//             conf.appwriteUserdataCollectionId)
+//         return result;
     
-   } catch (error) {
-    console.log("Appwrite error in listing user",error);
-    throw error;
+//    } catch (error) {
+//     console.log("Appwrite error in listing user",error);
+//     throw error;
     
-   }
+//    }
 
 
 
 
-   }
+//    }
 
 
-   async updateUserData({documentId,Username}){
-      try {
-        const result= await this.Databases.updateDocument(conf.appwriteDatabaseId,conf.appwriteUserdataCollectionId,documentId,
-            {
+//    async updateUserData({documentId,Username}){
+//       try {
+//         const result= await this.Databases.updateDocument(conf.appwriteDatabaseId,conf.appwriteUserdataCollectionId,documentId,
+//             {
                 
-               Username
+//                Username
 
-            }
-        );
-        if(result){
-            console.log("user data updated successfully");
-            return result;
-        }
+//             }
+//         );
+//         if(result){
+//             console.log("user data updated successfully");
+//             return result;
+//         }
         
-      } catch (error) {
-        console.log("Appwrite error in updating profile", error);
-        throw error;
+//       } catch (error) {
+//         console.log("Appwrite error in updating profile", error);
+//         throw error;
         
-      }
+//       }
         
-    }
+//     }
 
 
-    //get user
+//     //get user
 
-  async getUserData(UserId){
+//   async getUserData(UserId){
         
-        try {
-            const response=await this.Databases.getDocument(
-                conf.appwriteDatabaseId,
-                conf.appwriteUserdataCollectionId,
-                [Query.equal('UserId',UserId)]
-            );
-
-            return response;
+//         try {
+//             const response=await this.Databases.getDocument(
+//                 conf.appwriteDatabaseId,
+//                 conf.appwriteUserdataCollectionId,
+//                 [Query.equal('UserId',UserId)]
+//             );
+//             if(response) console.log("getting userData successfully");
+//             return response;
 
 
                 
            
             
-        } catch (error) {
-            console.log("Appwrite error in getting User Details",error) ;
-            return null;  
-        }
+//         } catch (error) {
+//             console.log("Appwrite error in getting User Details",error) ;
+//             return null;  
+//         }
 
-    }
+//     }
 
 
   

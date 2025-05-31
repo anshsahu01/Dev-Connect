@@ -32,12 +32,7 @@ function CreateProfile() {
       try {
         const currentUser = await authService.getCurrentUser();
         if (!currentUser) return navigate("/signin");
-        const userDocId=await service.getUserData(currentUser.$id);
-        if(userDocId){
-          console.log("user data------",userDocId);
-        }else{
-          console.log("not able to print userData");
-        }
+        
 
         setUserId(currentUser.$id);
 
@@ -73,9 +68,9 @@ function CreateProfile() {
       let profile;
 
       if (userProfileData && userProfileData.$id) {
-        await service.updateUserData({
+       
 
-        })
+      
         // Update Profile
         profile = await service.updateProfile({
           documentId: userProfileData.$id,
@@ -84,17 +79,14 @@ function CreateProfile() {
 
         
         
-        // console.log("Profile updated:", profile);
+       
       } else {
         // Create Profile
         profile = await service.createProfile({
           UserId: currentUser.$id,
           ...formatted,
         });
-        await service.createUserData({
-          UserId:currentUser.$id,
-          Username:data.name,   
-        })
+       
         console.log("Profile created:", profile);
       }
 
