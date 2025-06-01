@@ -1,3 +1,5 @@
+⚠️ This project is under development and not available for forking at this time.
+
 # 💼 DevConnect - The all in one networking platform for software Developers.
 
 [![Live Demo](https://img.shields.io/badge/🔗%20Live%20Demo-devconnect-blue?style=for-the-badge)](https://dev-connect-seven-psi.vercel.app/)
