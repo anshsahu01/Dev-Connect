@@ -1,39 +1,70 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Input from './Input';
+import service from '../appwrite/Services'
 
-function SearchBar({users}) {
+function SearchBar({className}) {
 
     const [searchTerm,setSearchTerm]=useState('');
+    
+    const [users,setUsers]=useState([]);
+        const [error,setError]=useState('');
+    
+        
+    
+        useEffect(()=>{
+          setError('');
+        const getuserList = async()=>{
+          try {
+          const response=await service.getAllUsers();
+            setUsers(response);
+    
+            console.log(response);
+          
+        } catch (error) {
+          setError(error);
+          throw error;
+          
+        }
+            
+        }
+    
+    
+        getuserList();
+    
+        },
+    [])
+  
+  const filteredUsers=searchTerm.trim()===""?
+  []:
+  users.filter((user)=>(
+ user.name.toLowerCase().includes(searchTerm.toLowerCase())
 
-  const filteredUsers=users.filter((user)=>{
-    return user.name.toLowerCase().includes(searchTerm.toLowerCase())
 
+  ))
 
-  })
+  console.log("Filtered USERS",filteredUsers);
 
     
   return (
-    <div>
-        <input
-        type="text"
-        placeholder="Search users"
-        className="w-full p-2 border rounded mb-4"
+  
+     <div>
+      <Input
+      className={` ${className}`}
+        label="Search Users"
+        placeholder="Type to search..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      {filteredUsers.length===0?(
-        <p>No user found</p>
-      ):(
-        filteredUsers.map((user)=>(
-          <p key={user.$id}>{user.name}</p>
-        ))
-      )
-      }
-        
-
-
-      
+      {searchTerm.trim() !== '' && (
+        filteredUsers.length === 0 ? (
+          <p>No user found</p>
+        ) : (
+          filteredUsers.map((user) => (
+            <p key={user.$id}>{user.name}</p>
+          ))
+        )
+      )}
     </div>
   )
 }

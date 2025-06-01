@@ -25,7 +25,7 @@ function Input({
         type={type}
         id={Id}
         ref={ref}
-        className={`w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-800 placeholder-gray-400 transition duration-150 ease-in-out ${className}`}
+        className={`  ${className}`}
         {...props}
       />
     </div>
