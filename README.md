@@ -12,10 +12,10 @@ Built with a modern tech stack focused on speed, scalability, and smooth UX — 
 ## 🚀 Features
 
 - 👥 **Professional Networking** like LinkedIn — follow, connect, and collaborate
-- 🔍 **Search Users** and view detailed profiles
+- 🔍 **Search Users** and view detailed profiles  (coming soon)
 - ✍️ **Create Posts** to share insights, updates, and content
 - 🔐 **Authentication & Authorization** powered by Appwrite
-- 🌗 **Dark/Light Mode**
+- 🌗 **Dark/Light Mode**  (coming soon)
 - 🧠 **Scalable State Management** using Redux
 - 🌐 **Client-side Routing** with React Router
 - 🛠️ **Admin & Moderation Tools** *(coming soon)*
