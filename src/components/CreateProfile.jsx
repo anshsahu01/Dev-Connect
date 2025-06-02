@@ -16,41 +16,102 @@ import {
   setProfileData,
   removeProfileData,
 } from "./store/AuthSlice";
+import Userprofile from "./Userprofile";
 
 function CreateProfile() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const isLoggedIn = useSelector((state) => state.auth.status);
   const currentState = useSelector((state) => state.auth.showEditForm);
   const userProfileData = useSelector((state) => state.auth.profileData);
-  const [userId, setUserId] = useState(null);
 
-  useEffect(() => {
-    const fetchProfile = async () => {
+
+  // --- FETCHING THE INITIAL PROFILE DETAILS IS PROFILE IS MADE
+
+  useEffect(()=>{
+    const fetchInitialProfile=async ()=>{
       try {
-        const currentUser = await authService.getCurrentUser();
-        if (!currentUser) return navigate("/signin");
-        
 
-        setUserId(currentUser.$id);
+        const currentUser = await authService.getCurrentUser();
+
+        if(!currentUser){
+          dispatch(removeProfileData());
+          dispatch(hideEditForm());
+
+          if(window.location.pathname!=="/signin"){ //agar aleready singin window per hai to navigate mat karo
+            navigate("/signin");
+          }
+
+          return;
+        };
+
+
+        // we will use the id of the current user to fetch the profile details
 
         const profile = await service.getProfileDetails(currentUser.$id);
-        // console.log("Fetched Profile: ", profile);
 
-        if (profile) {
+
+        if(profile){
           dispatch(setProfileData(profile));
-        } else {
-          dispatch(showEditForm()); // Show form if profile not exists
+        }else{
+          // profile doesnot exist for the current user
+          dispatch(removeProfileData()); 
+           dispatch(showEditForm());
         }
+        
       } catch (error) {
+
         console.log("Error fetching profile on mount", error);
+
+        
       }
     };
 
-    fetchProfile();
-  }, [navigate, dispatch]);
+
+    if(isLoggedIn){
+      fetchInitialProfile();
+    }else{
+      dispatch(hideEditForm());
+      dispatch(removeProfileData());
+      if(window.location.pathname!== "/singin") navigate("/signin");
+    }
+
+  },[isLoggedIn, navigate, dispatch])
+
+
+
+  // ---  IF THE USERPROFILE DATA IS AVAILABLE THEN POPULATE THE FORM FIELDS
+
+
+useEffect(()=>{
+
+  if( currentState && userProfileData && userProfileData.$id){
+
+    reset({
+      name : userProfileData.name,
+      bio : Userprofile.bio || "",
+      
+    })
+  }else if( currentState && !userProfileData){
+    reset({
+      name:"",
+      bio :"",
+    })
+  }
+
+  // agar current state false hai to form bhi hide hoga and then reset karke koi fayda nhi
+
+},[ userProfileData , reset, currentState]);
+
+
+
+
+
+
+
+  
 
   const formatFormData = (data) => ({
     bio: data.bio,
@@ -87,12 +148,17 @@ function CreateProfile() {
           ...formatted,
         });
        
-        console.log("Profile created:", profile);
+        
       }
 
-      dispatch(removeProfileData());
-      dispatch(setProfileData(profile));
-      dispatch(hideEditForm());
+      if(profile){
+        dispatch(setProfileData(profile));
+        dispatch(hideEditForm());
+      }else{
+        console.log("Profile creation or updation failed due to some error");
+      }
+
+     
     } catch (error) {
       console.log("Error in createOrUpdateProfile:", error);
     }

@@ -208,9 +208,9 @@ export class Services {
       async createProfile({name,UserId,bio,skills,education}){
 
         try {
-            const Profile= await this.Databases.createDocument(conf.appwriteDatabaseId,conf.appwriteProfileCollectionId,ID.unique(),
+            const Profile= await this.Databases.createDocument(conf.appwriteDatabaseId,conf.appwriteProfileCollectionId,UserId,
         {
-            UserId,name,bio,skills,education
+            name,bio,skills,education
             
         }
     )
@@ -232,7 +232,7 @@ export class Services {
             const response=await this.Databases.getDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteProfileCollectionId,
-                [Query.equal('UserId',UserId)]
+               UserId
             );
 
             return response;

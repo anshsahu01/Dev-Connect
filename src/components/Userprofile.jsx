@@ -94,14 +94,7 @@ function Userprofile() {
   };
 
 
-  //profile data ko retrieve karna hai with the use of the useEffecet
-
-  // useEffect(()=>{
-  //   setDetails(userprofileData)   ISKI AB NEED NHI HAI
-  // },[userprofileData])
-
-
-  // function to fetch the profile details so that we do not need to add it again and again
+  
 
   useEffect(()=>{
 const fetchProfileDetails=async()=>{
