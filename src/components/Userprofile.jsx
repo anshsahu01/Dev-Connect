@@ -12,6 +12,7 @@ import service from '../appwrite/Services';
 import Input from './Input';
 import CreateProfile from './CreateProfile';
 import { showEditForm,hideEditForm,setProfileData,removeProfileData } from './store/AuthSlice';
+import { useParams } from 'react-router-dom';
  
 
 
@@ -29,6 +30,9 @@ function Userprofile() {
   console.log(currentState);
   const userprofileData=useSelector((state)=>state.auth.profileData);
   console.log(userprofileData);
+
+
+  const {userId} =useParams();
  
   
 

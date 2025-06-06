@@ -2,15 +2,14 @@ import React from 'react'
 
 function Button({children,
   
-  bgColor="bg-blue-600",
-  textColor = "text-white",
+  
     className = "",
     ...props
   
 }) {
   return (
     <div>
-      <button className={`{bgColor} {textColor} {type}`} {...props}>{children}</button>
+      <button className='bg-blue-500 text-white p-2 font-bold rounded-xl hover:bg-blue-600' {...props}>{children}</button>
     </div>
   )
 }

@@ -25,7 +25,7 @@ function Input({
         type={type}
         id={Id}
         ref={ref}
-        className={`  ${className}`}
+        className={`border border-blue-600 p-2 rounded-xl ${className}`}
         {...props}
       />
     </div>

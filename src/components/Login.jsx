@@ -48,19 +48,32 @@ const navigate=useNavigate();
         {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
 
         <form onSubmit={handleSubmit(create)} className="space-y-4">
+
+         <div className='w-full  flex justify-center items-center'>
           <Input
             label="Email:"
             placeholder="Enter your email here"
             {...register("email", { required: true })}
+            className='w-80'
           />
+          </div>
+
+           <div className='w-full  flex justify-center items-center'>
 
           <Input
             label="Password:"
             placeholder="Enter your password here"
             {...register("password", { required: true })}
+            className='w-80'
           />
+          </div>
 
-          <Button type="submit" className="w-full">Login</Button>
+         <div className='w-full  flex justify-center items-center'>
+          <Button type="submit" className="w-full bg-blue-600 ">
+         Login
+          </Button>
+          </div>
+         
         </form>
 
         <p className="text-sm text-gray-500 text-center mt-4">

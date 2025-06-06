@@ -18,7 +18,7 @@ function Header() {
 
          {/* ✅ Search Bar */}
         <div className="w-full md:w-1/3">
-          <SearchBar className={'w-60 border border-blue-700'} />
+          <SearchBar className={'w-60 '} />
         </div>
 
         {/* Desktop Nav */}

@@ -53,7 +53,7 @@ const navigate=useNavigate();
           <p className="mt-2 text-sm text-gray-600">
             Already have an account?{' '}
             <Link
-              to="/login"
+              to="/"
               className="text-blue-600 hover:underline font-medium"
             >
               Sign In
@@ -72,6 +72,7 @@ const navigate=useNavigate();
             label="Full Name:"
             placeholder="Enter your name"
             {...register('name', { required: true })}
+            className='w-80'
           />
 
           <Input
@@ -79,6 +80,7 @@ const navigate=useNavigate();
             type="email"
             placeholder="Enter your email"
             {...register('email', { required: true })}
+            className='w-80'
           />
 
           <Input
@@ -86,11 +88,13 @@ const navigate=useNavigate();
             type="password"
             placeholder="Enter your password"
             {...register('password', { required: true })}
+            className='w-80'
           />
-
-          <Button type="submit" className="w-full">
+          <div className='w-full flex justify-center items-center'>
+          <Button type="submit" className="w-full bg-blue-600 ">
             Create Account
           </Button>
+          </div>
         </form>
       </div>
     </div>

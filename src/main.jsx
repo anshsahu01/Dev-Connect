@@ -13,6 +13,7 @@ import Profile from './pages/Profile'
 import Addpostpage from './pages/Addpostpage'
 import Logout from './components/Logout'
 import MessagePage from './pages/MessagePage'
+import Dynamicprofile from './components/Dynamicprofile'
 
 
 
@@ -59,6 +60,10 @@ const router=createBrowserRouter(
           path:"/messages",
           element:<MessagePage/>
         },
+        {
+          path:"/profile/:userId",
+          element:<Dynamicprofile/>
+        }
         
       ]
     }
