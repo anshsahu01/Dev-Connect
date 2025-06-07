@@ -1,4 +1,5 @@
 ⚠️ This project is under development and not available for forking at this time.
+-- Dummy Login Credentials - email - anshsahu@gmail.com,  password - anshsahu@password
 
 # 💼 DevConnect - The all in one networking platform for software Developers.
 
