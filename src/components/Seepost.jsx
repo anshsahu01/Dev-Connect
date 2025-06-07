@@ -5,7 +5,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import authService from '../appwrite/Auth'
 
 
-function Seepost() {
+function Seepost({userId}) {
   const navigate=useNavigate();
   const dispatch=useDispatch();
   const isLoggedIn=useSelector((state)=> state.auth.status);
@@ -17,11 +17,15 @@ function Seepost() {
         // console.log(currentUser);
   
         if (currentUser && isLoggedIn) {
-          const result = await service.getAllPosts();
-          if (result) {
-            console.log("RESULT",result);
-            setPosts(result.documents); // Save to state
-          }
+
+         if(userId){
+          const result=await service.getalluserPosts(userId);
+          setPosts(result.documents);
+         }else{
+          const result=await service.getAllPosts();
+          setPosts(result.documents);
+         }
+    
         } else {
           navigate("/signin");
         }

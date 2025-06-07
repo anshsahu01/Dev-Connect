@@ -22,7 +22,7 @@ function Logout() {
         await authService.Logout();
         console.log("Logout succsefully");
         dispatch(authLogout());
-        navigate("/login");
+        navigate("/");
       }
       
     } catch (error) {
@@ -34,9 +34,7 @@ function Logout() {
   
   
   return (
-    // <div>
-    //   <Button onClick={sessionEnds}>Logout</Button>
-    // </div>
+   
 
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
   <div className="bg-white p-6 rounded-lg shadow-md border w-full max-w-sm text-center">
