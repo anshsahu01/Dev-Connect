@@ -1,5 +1,15 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+/* In your global CSS file */
+.sidebar-link {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.sidebar-link:visited,
+.sidebar-link:hover,
+.sidebar-link:active {
+  color: white !important;
+}
 
 @custom-variant dark (&:is(.dark *));
 

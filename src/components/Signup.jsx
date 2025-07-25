@@ -129,8 +129,8 @@ const navigate=useNavigate();
             className='w-80'
           /> */}
           <div className='w-full flex justify-center items-center'>
-          <Button type="submit" className="w-full bg-blue-600 ">
-            Create Account
+          <Button type="submit" className=" ">
+            Create 
           </Button>
           </div>
         </form>
