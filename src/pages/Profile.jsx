@@ -46,16 +46,16 @@ function Profile() {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 min-h-screen py-8 px-4">
-      <div className="max-w-5xl mx-auto">
+    <div className="bg-black dark:bg-gray-900 min-h-screen py-8 px-4">
+      <div className="max-w-5xl mx-auto bg-black">
         <Userprofile />
         {Array.isArray(posts) && posts.length > 0 ? (
           posts.map((post) => (
             <div
               key={post.$id}
-              className="mt-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
+              className="mt-6 bg-zinc-800 dark:bg-gray-800 p-6 rounded-lg shadow-md"
             >
-              <p className="text-gray-800 dark:text-gray-200 text-base">{post.caption}</p>
+              <p className="text-white dark:text-gray-200 text-base">{post.caption}</p>
               <img
                 src={service.getFileView(post.Image)}
                 alt="Post Preview"
@@ -63,7 +63,7 @@ function Profile() {
               />
               <button
                 onClick={() => deletePost(post.$id)}
-                className="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+                className="mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl"
               >
                 Delete
               </button>

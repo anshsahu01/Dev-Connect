@@ -3,7 +3,7 @@ import { Login as LoginComponent } from '../components'
 
 function LoginPage() {
   return (
-    <div>
+    <div className='bg-black flex justify-center flex-row'>
         <LoginComponent/>
       
     </div>

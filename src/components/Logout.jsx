@@ -36,12 +36,12 @@ function Logout() {
   return (
    
 
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-  <div className="bg-white p-6 rounded-lg shadow-md border w-full max-w-sm text-center">
-    <h2 className="text-xl font-semibold text-gray-800 mb-4">Are you sure you want to logout?</h2>
+    <div className="flex justify-center items-center min-h-screen bg-black">
+  <div className=" p-6 rounded-lg   w-full max-w-sm text-center bg-zinc-800">
+    <h2 className="text-xl font-semibold  mb-4 text-white">Are you sure you want to logout?</h2>
     <button
       onClick={sessionEnds}
-      className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded w-full"
+      className="bg-stone-700 hover:bg-blue-600 text-white font-semibold py-2 px-4  w-full  rounded-xl"
     >
       Logout
     </button>

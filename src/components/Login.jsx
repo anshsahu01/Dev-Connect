@@ -41,37 +41,43 @@ const navigate=useNavigate();
 
   return (
 
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">Login</h2>
+    <div className="flex items-center justify-center min-h-screen bg-black">
+      <div className="bg-zinc-800 p-8 rounded-2xl shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-semibold text-center text-white mb-6">Login</h2>
 
         {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
 
         <form onSubmit={handleSubmit(create)} className="space-y-4">
 
-         <div className='w-full  flex justify-center items-center'>
+         <div className='w-full text-white flex flex-col items-start'>
+         
+         
+           <label className="block text-lg font-medium text-white mb-2">Email</label>
           <Input
-            label="Email:"
+          
             placeholder="Enter your email here"
             {...register("email", { required: true })}
-            className='w-80'
+            className='w-80 text-white  border border-gray-300'
           />
+         
           </div>
 
-           <div className='w-full  flex justify-center items-center'>
-
+           <div className='w-full text-white flex flex-col items-start'>
+               <label className="block text-lg font-medium text-white mb-2">Password</label>
           <Input
-            label="Password:"
+         
             placeholder="Enter your password here"
             {...register("password", { required: true })}
-            className='w-80'
+            className='w-80 text-white  border border-gray-300'
           />
           </div>
 
-         <div className='w-full  flex justify-center items-center'>
-          <Button type="submit" className="w-full bg-blue-600 ">
+         <div className='w-full flex justify-center items-center'>
+          {/* <Button type="submit" className="w-2 bg-stone-700 hover:bg-blue-600 ">
          Login
-          </Button>
+          </Button> */}
+          <Button type="submit" children="Login" className='w-full'/>
+          
           </div>
          
         </form>

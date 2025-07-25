@@ -46,10 +46,10 @@ const navigate=useNavigate();
   return (
 
 
-<div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="max-w-md w-full bg-white shadow-lg rounded-xl p-8 space-y-6">
+<div className="min-h-screen flex items-center justify-center bg-black px-4">
+      <div className="max-w-md w-full bg-zinc-800 shadow-lg rounded-xl p-8 space-y-6">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-800">Create your account</h2>
+          <h2 className="text-2xl font-bold text-white">Create your account</h2>
           <p className="mt-2 text-sm text-gray-600">
             Already have an account?{' '}
             <Link
@@ -68,14 +68,52 @@ const navigate=useNavigate();
         )}
 
         <form onSubmit={handleSubmit(create)} className="space-y-4">
-          <Input
+          {/* <Input
             label="Full Name:"
             placeholder="Enter your name"
             {...register('name', { required: true })}
             className='w-80'
-          />
+          /> */}
 
-          <Input
+           <div className='w-full text-white flex flex-col items-start'>
+                   
+                   
+                     <label className="block text-lg font-medium text-white mb-2">Full Name</label>
+                    <Input
+                    
+                      placeholder="Enter your name here"
+                      {...register("name", { required: true })}
+                      className='w-80 text-white  border border-gray-300'
+                    />
+                   
+                    </div>
+                    <div className='w-full text-white flex flex-col items-start'>
+                   
+                   
+                     <label className="block text-lg font-medium text-white mb-2">Email</label>
+                    <Input
+                    
+                      placeholder="Enter Email"
+                      {...register("email", { required: true })}
+                      className='w-80 text-white  border border-gray-300'
+                    />
+                   
+                    </div>
+
+                    <div className='w-full text-white flex flex-col items-start'>
+                   
+                   
+                     <label className="block text-lg font-medium text-white mb-2">Password</label>
+                    <Input
+                    
+                      placeholder="Enter Password"
+                      {...register("password", { required: true })}
+                      className='w-80 text-white  border border-gray-300'
+                    />
+                   
+                    </div>
+
+          {/* <Input
             label="Email:"
             type="email"
             placeholder="Enter your email"
@@ -89,7 +127,7 @@ const navigate=useNavigate();
             placeholder="Enter your password"
             {...register('password', { required: true })}
             className='w-80'
-          />
+          /> */}
           <div className='w-full flex justify-center items-center'>
           <Button type="submit" className="w-full bg-blue-600 ">
             Create Account

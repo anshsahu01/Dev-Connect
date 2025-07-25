@@ -260,7 +260,7 @@ export class Services {
             )
 
             if(response){
-                console.log("All users response geneated");
+                console.log("All users response generated");
                 return response.documents;
             }
             

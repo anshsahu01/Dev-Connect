@@ -78,35 +78,35 @@ function AddPost() {
     }
 
      return (
-    <div className="max-w-2xl mx-auto mt-12 p-8 bg-white rounded-xl shadow-md">
-      <h2 className="text-2xl font-semibold text-gray-800 text-center">Create a Post</h2>
+    <div className="max-w-2xl mx-auto mt-12 p-8 bg-zinc-800 rounded-xl shadow-md">
+      <h2 className="text-2xl font-semibold text-white text-center">Create a Post</h2>
 
       <form onSubmit={handleSubmit(handleaddPost)} className="mt-6 space-y-6">
         {/* Caption Field */}
         <div>
-          <label className="block text-lg font-medium text-gray-700">Caption:</label>
+          <label className="block text-lg font-medium text-white">Caption:</label>
           <textarea
             {...register('caption', { required: true })}
             placeholder="Write your post here"
-            className="w-full mt-2 p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mt-2 p-3 border rounded-lg text-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
         {/* Upload Image Field */}
         <div>
-          <label className="block text-lg font-medium text-gray-700">Upload Image:</label>
+          <label className="block text-lg font-medium text-white">Upload Image:</label>
           <input
             type="file"
             accept="image/*"
             {...register('Image', { required: true })}
-            className="w-full mt-2 p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mt-2 p-3 border rounded-lg text-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
         {/* Submit Button */}
         <Button
           type="submit"
-          className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300"
+          className="w-full py-3 bg-stone-700 text-white rounded-lg hover:bg-blue-700 transition duration-300"
         >
           Post
         </Button>

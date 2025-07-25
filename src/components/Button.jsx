@@ -9,7 +9,7 @@ function Button({children,
 }) {
   return (
     <div>
-      <button className='bg-blue-500 text-white p-2 font-bold rounded-xl hover:bg-blue-600' {...props}>{children}</button>
+      <button className='bg-stone-700  w-32 h-12 text-white p-2 font-bold rounded-xl hover:bg-blue-600' {...props}>{children}</button>
     </div>
   )
 }

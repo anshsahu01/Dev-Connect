@@ -49,7 +49,7 @@ function Profilecard({containerClass=""}) {
     },[isLoggedIn,navigate])
 
   return (
-    <div className={`p-4 rounded-md bg-white shadow ${containerClass}`}>
+    <div className={`p-4 rounded-md bg-zinc-800 shadow ${containerClass}`}>
         {userProfileData && (
             <div>
             <p>{userProfileData ?.name}</p>
