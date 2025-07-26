@@ -1,66 +1,48 @@
-⚠️ This project is under development and not available for forking at this time.
--- Dummy Login Credentials - email - anshsahu@gmail.com,  password - anshsahu@password
+# ⚡ Node.js Starter Function
 
-# 💼 DevConnect - The all in one networking platform for software Developers.
+A simple starter function. Edit `src/main.js` to get started and create something awesome! 🚀
 
-[![Live Demo](https://img.shields.io/badge/🔗%20Live%20Demo-devconnect-blue?style=for-the-badge)](https://dev-connect-seven-psi.vercel.app/)
+## 🧰 Usage
 
+### GET /ping
 
-DevConnect is a **next-generation networking platform** specially designed for **software engineers**. It goes beyond professional networking by aiming to integrate **personal connections**, such as **matrimonial**, **dating**, and **mentorship (Topmate-style)** features in future updates.
+- Returns a "Pong" message.
 
-Built with a modern tech stack focused on speed, scalability, and smooth UX — **DevConnect** is your all-in-one connection hub.
+**Response**
 
----
+Sample `200` Response:
 
-## 🚀 Features
+```text
+Pong
+```
 
-- 👥 **Professional Networking** like LinkedIn — follow, connect, and collaborate
-- 🔍 **Search Users** and view detailed profiles  (coming soon)
-- ✍️ **Create Posts** to share insights, updates, and content
-- 🔐 **Authentication & Authorization** powered by Appwrite
-- 🌗 **Dark/Light Mode**  (coming soon)
-- 🧠 **Scalable State Management** using Redux
-- 🌐 **Client-side Routing** with React Router
-- 🛠️ **Admin & Moderation Tools** *(coming soon)*
-- ❤️ **Matrimonial & Dating Mode** *(future feature)*
-- 📞 **Topmate-style Mentorship System** *(in roadmap)*
+### GET, POST, PUT, PATCH, DELETE /
 
----
+- Returns a "Learn More" JSON response.
 
-🔮 Upcoming Features
-Matchmaking / Dating Mode 💖
+**Response**
 
-Matrimonial Profiles 💍
+Sample `200` Response:
 
-Topmate-style Mentorship Booking 📞
+```json
+{
+  "motto": "Build like a team of hundreds_",
+  "learn": "https://appwrite.io/docs",
+  "connect": "https://appwrite.io/discord",
+  "getInspired": "https://builtwith.appwrite.io"
+}
+```
 
-Notifications, Messaging, and Video Calls 📲
+## ⚙️ Configuration
 
-Public/Private Post Visibility 🔐
+| Setting           | Value         |
+| ----------------- | ------------- |
+| Runtime           | Node (18.0)   |
+| Entrypoint        | `src/main.js` |
+| Build Commands    | `npm install` |
+| Permissions       | `any`         |
+| Timeout (Seconds) | 15            |
 
-Explore & Trending Sections 
+## 🔒 Environment Variables
 
-## 🛠️ Tech Stack
-
-| Technology    | Purpose                        |
-|---------------|--------------------------------|
-| **React.js**  | Frontend UI                    |
-| **Vite**      | Build & Dev Environment        |
-| **Appwrite**  | Backend services (Auth, DB, etc.) |
-| **ShadCN UI** | Beautiful & accessible UI components |
-| **Redux**     | App-wide state management      |
-| **React Router** | Dynamic routing and navigation |
-
----
-
-## 📦 Installation
-
-```bash
-git clone https://github.com/your-username/devconnect.git
-cd devconnect
-npm install
-npm run dev
-
-🧑‍💻 Author
-Made with ❤️ by Ansh Sahu
-
+No environment variables required.
